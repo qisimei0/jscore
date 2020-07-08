@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 求和
+     function add(a,b) {
+      return a+b;
+    }
+    // 箭头函数
+    var add=(a,b)=>a+b;
+    console.log(add(2,5));
+
+
+
+    // 排序
+    var arr=[11,22,555,14546,5];
+    arr.sort(function (a,b) {
+      return a-b;      
+    });
+    // 箭头函数
+    arr.sort((a,b)=>a-b);
+    console.log(arr);
+
+
+
+    // 首字母大写
+    var str="you can you up";
+    str=str.replace(/\b[a-z]/g,function (keywords) {
+      return keywords.toUpperCase();
+    });
+    // 箭头函数
+    str=str.replace(/\b[a-z]/g,keywords=>keywords.toUpperCase());
+    console.log(str);
+
+
+
+    // 遍历
+    var arr=["凉凉","然然","咚咚"];
+    arr.forEach(function (value) {
+      console.log(`${value}--到`);
+    });
+    // 箭头函数
+    arr.forEach(value=>console.log(`${value}---到`));
+
+
+
+    // 数组中的数*2
+    var arr=[1,2,3,4,5];
+    var arr2=arr.map(function (value) {
+      return value*2;
+    });
+    // 箭头函数
+    var arr2=arr.map(value=>value*2);
+    console.log(arr);
+    console.log(arr2);
+    // 数组求和
+    var arr=[1,2,3,4,5];
+    var result=arr.reduce(function (value,box) {
+      box+value;
+    },0);
+    // 箭头函数
+    var result=arr.reduce((value,box)=>box+value,0);
+    console.log(result);
+
+
+
+    // 自调函数
+    (function () {
+      var t=new Date();
+      console.log(`网页加载完成at：${t.toLocaleString()}`);
+    })();
+    // 箭头函数
+    ()=>{
+      var t=new Date();
+      console.log(`网页加载完成at:${t.toLocaleString()}`);
+    }
+
+    // 定时器
+    var s=5;
+    var timer=setInterval(function () {
+      console.log(s);
+      s--;
+      if(s==0){
+        console.log(`boom!!`);
+        clearInterval(timer);
+      }
+      
+    },1000);
+    // 箭头函数
+    var n=5
+    var timer1=setInterval(()=>{
+      console.log(n);
+      n--;
+      if(n==-5){
+        console.log(`boom!!!`);
+        clearInterval(timer1);
+      }
+    },1000);
+
+  </script>
+</body>
+</html>

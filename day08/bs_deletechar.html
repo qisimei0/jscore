@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr=[1,2,3,"a",5];
+    for(var i=arr.length;i>=0;i--){//倒遍历
+      if(typeof arr[i]==="number"){
+        arr[i]++;
+      }else{
+        arr.splice(i,1);
+      }
+    }
+    console.log(arr);//[2,3,4,6]
+  </script>
+  <script>
+    // 两个数组排好序
+    // 若没有排好序就arr.sort再比较
+    var arr1=[1,3,7,9,11];
+    var arr2=[2,3,5,9,11,12];
+    for(var i=0,j=0,result=[];i<arr1.length&&j<arr2.length;){
+      if(arr1[i]<arr2[j]){
+        i++;
+      }else if(arr1[i]>arr2[j]){
+        j++;
+      }else{//arr[i]==arr[j]
+        result.push(arr1[i]);//或者arr2[j]
+        i++;j++;
+      }
+    }
+    console.log(result);
+  </script>
+  <script>
+    // 找数组中两个数和为19
+    // 若没有排序好也应该先给他排序好
+    var arr3=[1,2,4,6,7,11,12,15,17,18];
+    for(var i=0,j=arr3.length-1;i<j;){
+      if(arr3[i]+arr3[j]>19){
+        j--;
+      }else if(arr3[i]+arr3[j]<19){
+        i++;
+      }else{//arr[m]+arr[n]==19
+        console.log(`${arr3[i]}+${arr3[j]}=19`);
+        i++;
+        j--;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr=["凉凉","然然","东东"];
+    // 3种
+    for(var i=0;i<arr.length;i++){
+      console.log(`${arr[i]}---到`);
+    }
+    arr.forEach(function (value) {
+      console.log(`${value}---到`);
+      
+    })
+    arr.forEach(value=>console.log(`${value}---到`));
+    for(var v of arr){console.log(`${v}---到`)}
+    function add() {
+      var sum=0;
+      for(var i=0;i<arguments.length;i++){
+        sum+=arguments[i];
+      }
+      return sum;
+    }
+    function add1() {
+      var sum1=0;
+      // for(var i=0;i<arguments.length;i++){
+      //   sum+=arguments[i];
+      // }
+      // 类数组对象
+      //arguments.forEach(v=sum+=v);//报错arguments.forEach is not a function
+    for(var v of arguments){sum1+=v}
+    return sum1;
+
+    }
+    console.log(add(1,2,3,5));
+    console.log(add1(1,2,3,5));
+    var str="hello";
+    // 
+    for(var i=0;i<str.length;i++){//顺序遍历
+      console.log(str[i]);//hello
+    }
+    for(var i=str.length-1;i>=0;i--){//倒叙遍历
+      console.log(str[i]);//olleh
+    }
+   
+    for(var i=0;i<str.length;i+=2){//调整遍历的步长
+      console.log(str[i]);//hlo
+    } 
+    for(var v of str){
+      console.log(v);//hello
+    }
+    for(var i=0;i<5;i++){
+      console.log(i);
+    }
+  </script>
+</body>
+</html>

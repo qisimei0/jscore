@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 异步任务顺序执行
+    function liang(){
+      console.log(`亮亮起跑....`);
+      setTimeout(function(){//异步
+        console.log(`亮亮达到终点！`);
+      },Math.random()*2+1000+1000)
+      //   1~3s之间随机取值
+    }
+    function ran(){
+      console.log(`然然起跑....`);
+      setTimeout(function(){//异步
+        console.log(`然然达到终点！`);
+      },Math.random()*2+1000+1000)
+    }
+    // 错误:单纯调用两个异步回调函数，无法保证顺序执行
+    // liang();
+    // ran();
+
+    // 正确：让liang()先保住ran(),但是暂时不执行ran()
+    liang(
+      function(){
+        ran();
+      }
+    );
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str="babbbbbbbrehmb";
+        var arr=str.split("");
+        var arr1=[];
+        for(var i=0;i<arr.length;i++){
+            
+                // 获得当前字母
+                var char=str[i];
+                // 如果没有这个字母就添加值为1；
+                if(arr1[char]===undefined){
+                    arr1[char]=1;
+                }else{
+                    // 若有就把值+1
+                    arr1[char]++;
+                }
+        }       
+        // 关联数组length始终为0，只能统计数值下标，不能统计自定义下标 
+        console.log(arr1,arr1[char]);
+        // maxChar暂存最多的字符
+        // count暂存数量
+        var maxChar,count=0;
+        for(var key in arr1){
+            // 如果当前字母的数量>count 
+            if(arr1[key]>count){
+                // 就用key代替maxChar
+                maxChar=key;
+                // 用key的value值代替count
+                count=arr1[key];
+            }
+        }
+        console.log(`出现最多的字母是${maxChar}次数${count}`)
+    </script>
+    <script>
+        var str="helloworld";
+        var arr=str.split("");
+        var arr1=[];
+        for(var i=0;i<arr.length;i++){
+            // 声明一个变量存当前字符
+            var char=arr[i];
+            // 如果索引数组不存在
+            if(arr1[char]===undefined){
+                arr1[char]=1;
+            }else{
+                arr1[char]++;
+            }
+        }
+        console.log(arr1);
+        
+        var count=0,Schar;
+        for(var key in arr1)
+        if(arr1[key]>count){
+            count=arr1[key];
+            Schar=key;
+        }
+        console.log(`出现最多的是${Schar}次数是${count}`);
+        
+    </script>
+    <script>
+        var str="hello world";
+        var arr=str.split("");
+        var arr1=[];
+        for(var i=0;i<arr.length;i++){
+            var char=arr[i];
+            if(arr1[char]===undefined){
+                arr1[char]=1;
+            }else{
+                arr1[char]++;
+            }
+        }
+        console.log(arr1);
+        var count=0,maxChar;
+        for(var key in arr1){
+            if(arr1[key]>count){
+                maxChar=key;
+                count=arr1[key];
+            }
+        }
+        console.log(`出现次数最多的字符${maxChar},次数为${count}`);
+    </script>
+
+
+
+    <!-- <script>
+        console.log(a);
+    </script>
+    <script>
+        console.log(a);
+        var a=10;
+    </script>
+    <script>
+        console.log(a);
+    </script> -->
+</body>
+</html>

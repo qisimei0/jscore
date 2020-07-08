@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Student(sname,sage){
+      this.sname=sname;
+      this.sage=sage;
+    }
+    Student.prototype.intr=function(){
+      console.log(`I'm${this.sname}I'm${this.sage}`);
+    }
+    var lilei=new Student("Li Lei",11);   
+    console.log(lilei);
+
+
+    // class
+    class  Student1{
+      // 直接放在class的也会成为自由属性
+      //className="初一2班";
+      constructor(sname,sage){
+        //this.className="初一2班";//自有属性
+        // 凡是在构造函数中用this.xxx方式添加的都是自有属性
+        this.sname=sname;
+        this.sage=sage;
+    }
+    intr(){
+      console.log(`I'm${this.sname}I'm${this.sage}`);
+    }
+    }
+    // 旧js中添加共有属性
+    Student1.prototype.className="初一2班";
+    var lilei=new Student1("Li Lei",11);   
+    var hmm=new Student1("Han Meimei",11);   
+    console.log(lilei);
+  </script>
+</body>
+</html>

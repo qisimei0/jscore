@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var products=[
+      {pname:"小米",price:3488},
+      {pname:"华为",price:4488},
+      {pname:"苹果",price:5488},
+      {pname:"小米8",price:6488},
+      {pname:"oppo",price:6488},
+      {pname:"apple",price:6488}
+    ];
+    // 只想用前两个商品对象，暂时不用后两个商品对象
+   // var p1,p2;
+   var [p1,p2]=products;
+    console.log(p1);
+    console.log(p2);
+    p1.price-=1000;//地址
+    console.log(products[0]);//2488
+//看按值传递的视频*************
+    var arr=[1,2,3,4,5];
+    //var m,n;
+    var [m,n]=arr;
+    console.log(m);
+    m-=1;
+    console.log(arr[0]);//没变还是1
+
+    //var m1,m3,m6;
+   // [m1,,m3,,,m6]=products;
+   var [m1,,m3,,,m6]=products;
+  //  先声明三个变量，再数组解构
+    console.log(m1);
+    console.log(m3);
+    console.log(m6);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var t=0;//定义全局变量t用于累加每个函数的执行时间
+    function fun1(){
+      console.log(`fun1执行耗时0.3s`);
+      t+=0.3;
+    }
+    function fun2(){
+      // var t声明提前
+      console.log(`fun1执行耗时0.8s`);
+      t+=0.8;
+       // 
+    if(false){//不会执行
+     // (function(){
+       let t=new Date();
+    }
+      }    
+    //})()
+    //console.log(a);//报错Cannot access 'a' before initialization
+    let a=10;
+    console.log(a);
+    let b;
+    console.log(b);//undefined
+    //let a=100;//报错: 
+    //Identifier 'c' has already been declared
+    //变量名/标识符        已经    被    声明
+
+
+   
+    fun1();
+    fun2();
+    console.log(`共耗时${t}s`);
+  </script>
+</body>
+</html>

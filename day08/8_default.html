@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 定义自我介绍函数
+    function intr(msg="主人很懒，什么也没有留下"){
+      console.log(`我的自我介绍:${msg}`);
+    }
+    intr(`you can do it`);
+    intr();
+    // 定义点餐函数
+    function order(zs="香辣鸡腿堡",xc="薯条",yl="可乐"){
+      console.log(`您点的餐是：
+        主食：${zs},
+        小吃：${xc},
+        饮料：${yl}
+      `)
+    }
+    //
+    order("香辣鸡腿堡","薯条","可乐");
+    //
+    order();
+    // 换主食，实现不了
+    //order(,,"咖啡");//报错
+    order("咖啡");
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var lilei={
+      sname:"Li Lei",
+      firends:["凉凉","然然","咚咚"],
+     // intr:()=>{//Cannot read property 'forEach' of undefined
+      intr(){//ES6简写可以不写function
+      //intr:function() {//最初这样写
+        this.firends.forEach(
+          value=>{
+            console.log(`${this.sname}认识${value}`);
+          }
+        )
+      }
+    }
+    lilei.intr();
+  </script>
+</body>
+</html>

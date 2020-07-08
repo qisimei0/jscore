@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 赛跑
+    function liang(){
+      // 在函数内有一个格子间
+      return new Promise(
+        function(resolve){
+        var bang="接力棒";
+          console.log(`亮拿着${bang}起跑...`);
+          setTimeout(function(){//异步
+        console.log(`亮拿着${bang}达到终点...`);
+        // 在亮达到终点之后,开门
+        resolve();
+      },6000);
+        }
+      )
+      
+    }
+   
+    function ran(bang){
+      return new Promise(
+        function(resolve){
+          console.log(`然拿着${bang}起跑...`);
+          setTimeout(function(){
+          console.log(`然拿着${bang}达到终点...`);
+        // 在然达到终点之后function(){ dong() }
+        resolve();
+      },4000);
+        }
+      )
+      
+    }
+    
+    function dong(bang){
+      return new Promise(
+        function (resolve){
+          console.log(`东拿着${bang}起跑...`);
+          setTimeout(function(){
+          console.log(`东拿着${bang}达到终点...`);
+          resolve();
+      },3000);
+        }
+      )
+      
+    }
+    //  liang()//return格子间
+    //  .then(ran)//会在door()后执行
+    //  .then(dong);
+    // 简写
+    // liang().then(ran).then(dong);
+    (async function(){
+      var bang=await liang();
+      bang=await ran(bang);
+      bang=await dong(bang);
+      bang=console.log("比赛结束");
+    })()
+  </script>
+</body>
+</html>

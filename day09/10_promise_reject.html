@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 赛跑
+    function liang(){
+      // 在函数内有一个格子间
+      return new Promise(
+        function(resolve,reject){
+          console.log(`亮起跑...`);
+          setTimeout(function(){//异步
+            if(Math.random()<0.3){
+              reject("啊啊啊啊啊亮摔倒了");
+            }else{
+              console.log(`亮达到终点...`);
+              // 在亮达到终点之后,开门
+              resolve();
+            }
+      },1000);
+        }
+      )
+      
+    }
+   
+    function ran(){
+      return new Promise(
+        function(resolve,reject){
+          console.log(`然起跑...`);
+          setTimeout(function(){
+            if(Math.random()<0.3){
+              reject("啊，然摔倒了");
+            }else{
+              console.log(`然达到终点...`);
+        // 在然达到终点之后function(){ dong() }
+        resolve();
+            }
+         
+      },4000);
+        }
+      )
+      
+    }
+    
+    function dong(){
+      return new Promise(
+        function (resolve){
+          console.log(`东起跑...`);
+          setTimeout(function(){
+          console.log(`东达到终点...`);
+          resolve();
+      },3000);
+        }
+      )
+      
+    }
+    //  liang()//return格子间
+    //  .then(ran)//会在door()后执行
+    //  .then(dong);
+    // 简写
+     liang()/*return new Promise()*/.then
+     (ran)/*return new Promise()*/.then
+     (dong)/*return new Promise()*/.then(
+       ()=>console.log("比赛结束")).catch
+       (e=>{console.log("出错了！"+e)});
+    
+  </script>
+</body>
+</html>

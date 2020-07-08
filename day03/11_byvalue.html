@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 按值传递
+    // 原始类型
+    var a=3;
+    var b=a;//按值传递：赋值其实是将原变量中的值复制一个副本给对方变量.对于原始类型来说：修改新变量的副本，不影响原变量的。
+    b++;
+    console.log(a);//3
+    console.log(b);//4
+    // 引用类型
+    var dong=["包","包","包","包"];
+    var ran=dong;//地址
+    ran.pop();
+    console.log(dong.length);//3
+  </script>
+  <script>
+    var card=10;
+    function pay(card){
+      card-=3;
+      console.log(`余额为${card}`);
+    }
+    pay(card);//余额为7
+    console.log(card);//10
+  </script>
+  <script>
+    var arr=["包","包","包","包"];
+    function eat(){
+      arr.pop();
+      console.log(`还剩${arr.length}个包子`);
+    }
+    eat(arr);//还剩3个包子
+    console.log(`还剩${arr.length}个包子`);//还剩3个包子
+
+  </script>
+  <script>
+    var lilei={
+      sname:"Li Lei",//原始类型值
+      sage:11,//原始类型值
+      address:/*地址：0x9091*/{//引用类型地址
+        city:"北京",
+        stress:"万寿路"
+      }
+
+    }
+    var lilei2={};
+    lilei2.sname=lilei.sname;
+    lilei2.sage=lilei.sage;
+    lilei2.address=lilei.address;
+    console.log(lilei2.sname,lilei2.sage);//Li Lei 11
+    lilei2.sname="Li Xiaolei";
+    console.log(lilei.sname);//Li Lei 
+    lilei2.address.city="西安";
+    console.log(lilei.address);//西安
+  </script>
+  <script>
+    var d=10;
+    function fun(d){
+      d++;
+      console.log(d);
+    }
+    //传参等于形参变量赋值，也会发生按值传递
+    fun(d);//11将全局变量d中的10，复制到一个副本给fun的形参变量d，所以函数内修改d不影响全局变量。
+    console.log(d);//10
+  </script>
+</body>
+</html>

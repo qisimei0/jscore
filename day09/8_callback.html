@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 赛跑
+    function liang(cart){
+      console.log(`亮起跑...`);
+      setTimeout(function(){//异步
+        console.log(`亮达到终点...`);
+        // 在亮达到终点之后,卸车
+        cart()
+        // 相当于到了
+      },6000);
+    }
+    // liang();
+    function ran(cart){
+      console.log(`然起跑...`);
+      setTimeout(function(){
+        console.log(`然达到终点...`);
+        // 在然达到终点之后function(){ dong() }
+        cart();
+      },4000);
+    }
+    // ran();
+    function dong(){
+      console.log(`东起跑...`);
+      setTimeout(function(){
+        console.log(`东达到终点...`);
+      },3000);
+    }
+    // dong();
+    // 接力跑:这个解决方法不太好
+    liang(
+      function(){
+      ran(
+        function(){
+        dong();
+      });
+    });
+  </script>
+</body>
+</html>
